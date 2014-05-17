@@ -1,0 +1,10 @@
+<div class="jumbotron">
+	<h1>Blog</h1>
+</div>
+
+<div ng-repeat="blog in blogposts | orderBy:blogsort:blogreverse" class="container">
+	<h2>{{blog.title}}</h2>
+	<div>
+		{{blog.body.substring(0,256)}}
+	</div>
+</div>

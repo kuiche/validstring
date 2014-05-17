@@ -1,0 +1,95 @@
+<div class="panel-group" id="accordion">
+	
+	<!-- BLOG ITEMS --> 
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#blog-admin-collapse" onclick="return false;">
+				Blog Items</a>
+				{{postform}}
+			</h4>
+		</div>
+
+		<div class="panel-collapse collapse in" id="blog-admin-collapse">
+
+			<div class="panel-body">
+				<div class="list-group">
+					<div ng-repeat="post in blogposts | orderBy:blogsort:blogreverse" class="list-group-item container-fluid">
+						<div class="col-md-9 col-sm-9">
+							<h4 class="pull-left">{{post.title}}</h4>
+						</div>
+						<div class="pull-right">
+							<button ng-click="editBlogPost(post.id)" class="btn btn-primary">edit</button>
+							<button ng-click="deleteBlogPost(post.id)" class="btn btn-danger">delete</button>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="panel-footer">
+			<button class="btn btn-primary" ng-click="addBlogPost()" data-toggle="modal" data-target="#post-form">New</button>
+		</div>
+	</div>
+
+	<!-- /BLOG ITEMS -->
+
+	<!-- PROJECT ITEMS --> 
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#projects-admin-collapse" onclick="return false;">
+				Project Items</a>
+			</h4>
+		</div>
+
+		<div class="panel-collapse collapse" id="projects-admin-collapse">
+			<div class="panel-body">
+				
+				Body
+
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#user-admin-collapse" onclick="return false;">
+				User Management</a>
+			</h4>
+		</div>
+
+		<div class="panel-collapse collapse" id="user-admin-collapse">
+			<div class="panel-body">
+				
+				Body
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- DIALOGS -->
+<div class="modal fade" id="post-form">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+    		<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Modal title</h4>
+			</div>
+			<form class="simple-form" ng-submit="submitBlogPostForm()">
+				<div class="modal-body">
+					<input placeholder="title" type="text" class="form-control" name="title" ng-model="postform.title">
+					<input placeholder="keywords" type="text" class="form-control" name="meta-keywords" ng-model="postform.keywords">
+					<textarea rows="20" placeholder="body" type="text" class="form-control txt-pane-lrg" name="body" ng-model="postform.body"></textarea>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-primary" value="Done">
+				</div>
+			</form>
+      
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

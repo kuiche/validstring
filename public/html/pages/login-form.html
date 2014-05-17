@@ -1,0 +1,12 @@
+
+
+<form class="form form-default" ng-submit="login()">
+    <div ng-if="hasErrors()" class="row">
+    	{{errors}}
+    </div>
+    <div class="form-group">
+	    <input type="text" name="username" placeholder="username" class="form-control" ng-model="formData.username">
+	    <input type="password" name="password" placeholder="password" class="form-control" ng-model="formData.password">
+	    <input type="submit" class="btn">
+    </div>
+</form>

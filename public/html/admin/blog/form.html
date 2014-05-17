@@ -1,0 +1,8 @@
+<form class="simple-form" ng-submit="login()">
+    <div ng-if="hasErrors()">
+    	{{errors}}
+    </div>
+    <input type="text" name="username" placeholder="username" class="form-control" ng-model="formData.username">
+    <input type="password" name="password" placeholder="password" class="form-control" ng-model="formData.password">
+    <input type="submit">
+</form>
